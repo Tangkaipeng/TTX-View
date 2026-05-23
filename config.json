@@ -1,0 +1,51 @@
+{
+  "refresh_seconds": 10,
+  "appearance": {
+    "opacity": 0.94,
+    "theme": "dark"
+  },
+  "categories": [
+    "默认",
+    "贵金属",
+    "A股",
+    "基金"
+  ],
+  "symbols": [
+    {
+      "code": "hf_XAU",
+      "name": "现货黄金",
+      "type": "metal",
+      "category": "贵金属"
+    },
+    {
+      "code": "hf_XAG",
+      "name": "现货白银",
+      "type": "metal",
+      "category": "贵金属"
+    },
+    {
+      "code": "sh000001",
+      "name": "上证指数",
+      "type": "a_stock",
+      "category": "A股"
+    },
+    {
+      "code": "sz000400",
+      "name": "许继电气",
+      "type": "a_stock",
+      "category": "A股"
+    },
+    {
+      "code": "sz000426",
+      "name": "兴业银锡",
+      "type": "a_stock",
+      "category": "A股"
+    },
+    {
+      "code": "sh600988",
+      "name": "赤峰黄金",
+      "type": "a_stock",
+      "category": "A股"
+    }
+  ]
+}

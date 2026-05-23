@@ -1,0 +1,26 @@
+# Build outputs
+bin/
+obj/
+dist/
+build/
+
+# Local .NET runtime and CLI state
+.dotnet/
+.dotnet_home/
+.appdata/
+.nuget_packages/
+
+# User and IDE files
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Logs and temporary files
+*.log
+*.tmp
+debug-*.txt
+
+# Python leftovers from old prototypes
+__pycache__/
+*.pyc
