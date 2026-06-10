@@ -16,15 +16,21 @@ TTX View 是一个 Windows 桌面悬浮行情盯盘工具，基于 WPF 原生实
 - A 股习惯配色：红色上涨，绿色下跌
 - 默认支持现货黄金、现货白银、A 股、基金
 
-## Quick Start
+## Download
 
-如果已经有发布包，直接运行：
+当前推荐下载 Windows x64 便携压缩包：
 
 ```text
-dist\TTXView\TTXView.exe
+TTXView-v0.1.0-win-x64-portable.zip
 ```
 
-注意：当前是框架依赖发布目录，`TTXView.exe` 旁边的 `dll`、`json` 文件需要保留在同一目录。
+解压后运行：
+
+```text
+TTXView.exe
+```
+
+便携包是 self-contained 发布，用户电脑无需额外安装 .NET。请保留 `TTXView.exe` 同目录下的 `config.json`，它用于保存默认分类、标的和界面配置。
 
 ## Default Config
 
@@ -96,6 +102,8 @@ $dotnet = if (Test-Path '.\.dotnet\dotnet.exe') { '.\.dotnet\dotnet.exe' } else 
 
 ## Publish
 
+普通框架依赖发布：
+
 PowerShell:
 
 ```powershell
@@ -117,6 +125,29 @@ $dotnet = if (Test-Path '.\.dotnet\dotnet.exe') { '.\.dotnet\dotnet.exe' } else 
 dist\TTXView\TTXView.exe
 ```
 
+## Package Portable Release
+
+生成 Windows x64 便携压缩包：
+
+```powershell
+.\scripts\package-portable.ps1
+```
+
+脚本会生成：
+
+```text
+artifacts\TTXView-v0.1.0-win-x64-portable.zip
+artifacts\TTXView-v0.1.0-win-x64-portable.zip.sha256
+```
+
+便携包使用 self-contained single-file 发布，不要求用户安装 .NET。压缩包内会包含：
+
+- `TTXView.exe`
+- `config.json`
+- `README.md`
+
+当前便携包目标平台是 `win-x64`。如果要发布给其他平台，需要按目标运行时重新打包。
+
 ## Project Structure
 
 ```text
@@ -124,6 +155,8 @@ TTXView.Wpf\        WPF 主项目
 config.json         默认分类、标的和界面配置
 NuGet.Config        NuGet 构建配置
 README.md           项目说明文档
+scripts\            发布与维护脚本
+artifacts\          便携压缩包输出目录，重新打包后生成
 dist\TTXView\       本地发布产物，重新发布后生成
 ```
 
@@ -132,3 +165,4 @@ dist\TTXView\       本地发布产物，重新发布后生成
 - 行情数据依赖网络请求，网络异常时可能无法刷新。
 - 本工具只用于行情观察，不构成任何投资建议。
 - 若删除 exe 同级目录的 `config.json`，程序会重新生成内置默认配置。
+- 当前发布包暂未做代码签名，部分 Windows 设备可能出现 SmartScreen 提示。

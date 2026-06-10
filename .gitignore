@@ -2,7 +2,9 @@
 bin/
 obj/
 dist/
+dist/portable/
 build/
+artifacts/
 
 # Local .NET runtime and CLI state
 .dotnet/
